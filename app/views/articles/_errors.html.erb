@@ -1,0 +1,8 @@
+<% if @article.errors.any? %>
+      <p>Due to some errors, the form can't be save</p>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <%end%>
+      </ul>
+<% end %>
