@@ -15,10 +15,10 @@
  */
 @import "bootstrap";
 
+// Home page
 .home-main{
     display: flex;
     align-items: center;
-    margin-top: 20px;
     height: 500px;
     background-image: asset-url('computer.jpg');
     background-size: cover;
@@ -26,6 +26,9 @@
     background-repeat: no-repeat;
 }
 
+.header{
+    margin-bottom: 30px;
+}
 .main-brand{
     border-radius: 50%;
     margin: 10px;
@@ -46,3 +49,15 @@ body {
 #page-content {
     flex: 1 0 auto;
 }
+
+// End
+
+// Articles page
+.card-box{
+    margin-bottom: 50px;
+}
+.card-item{
+    margin: auto;
+    width: 80%;
+}
+//End
