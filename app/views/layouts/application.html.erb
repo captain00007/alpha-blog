@@ -10,11 +10,12 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
     <%= render "layouts/header"%>
     <% flash.each do |name,msg|%>
       <p><%= msg %></p>
     <% end %>
     <%= yield %>
+    <%= render "layouts/footer"%>
   </body>
 </html>

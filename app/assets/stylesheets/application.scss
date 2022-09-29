@@ -14,3 +14,35 @@
  *= require_self
  */
 @import "bootstrap";
+
+.home-main{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    height: 500px;
+    background-image: asset-url('computer.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-brand{
+    border-radius: 50%;
+    margin: 10px;
+}
+.jumbotron{
+    margin: auto;
+    width: 60%;
+    text-align: center;
+    color: #ffffff;
+    //border: 1px solid red;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+}
