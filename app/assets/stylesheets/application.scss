@@ -49,7 +49,6 @@ body {
 #page-content {
     flex: 1 0 auto;
 }
-
 // End
 
 // Articles page
@@ -62,7 +61,6 @@ body {
 }
 
 .form-box{
-    border: 1px solid red;
     background-color: #82b6d9;
 }
 .btn-article{
@@ -73,3 +71,8 @@ body {
     width: 160px;
 }
 //End
+
+// Article show
+.card-text-show{
+    text-align: left!important;
+}

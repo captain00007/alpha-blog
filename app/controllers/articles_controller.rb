@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     def update
         
         if @article.update(article_params)
-            flash[:notice]="Article save succesfully"
+            flash[:notice]="Article update succesfully"
             redirect_to article_path(@article)
         else
             render 'edit', status: 422
