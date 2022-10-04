@@ -1,4 +1,6 @@
-<h1>Edit article</h1>
+<h1 class="text-center">Edit article</h1>
 <%= render "errors" %>
 <%= render "form"%>
-<button type="button"><%= link_to 'Back', :back %></button>
+<div class="text-center mt-4">
+    <%= link_to 'Return to Articles listing', articles_path, class:"btn btn-outline-primary" %>
+</div>
