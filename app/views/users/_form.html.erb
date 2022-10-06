@@ -1,0 +1,19 @@
+<div class="container pt-4 text-white form-box">
+  <%= form_with(model:@user, local: true) do |f| %>
+        <div class="row mb-4">
+          <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"><%= f.label :username,"User name" ,class: "form-label" %></div>
+          <div class="col-xs-12 col-sm-10 12 col-md-10 col-lg-10 col-xl-10"><%= f.text_field :username, placeholder: "Enter a user name", class: "form-control" %></div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"><%= f.label :email, class: "form-label" %></div>
+          <div class="col-xs-12 col-sm-10 12 col-md-10 col-lg-10 col-xl-10"><%= f.email_field :email, placeholder: "Enter a email", class: "form-control" %></div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 col-xl-2"><%= f.label :password, class: "form-label" %></div>
+          <div class="col-xs-12 col-sm-10 12 col-md-10 col-lg-10 col-xl-10"><%= f.password_field :password, placeholder: "Enter a passwword", class: "form-control" %></div>
+        </div>
+        <p class="text-center">
+          <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class:"btn-article") %> 
+        </p>
+  <% end %>
+</div>
