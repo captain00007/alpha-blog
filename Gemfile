@@ -9,7 +9,11 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+#Bootstrap gem
 gem 'bootstrap', '~> 5.1.3'
+
+#Gem for pagination
+gem 'will_paginate', '~> 3.3'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -72,6 +76,7 @@ group :test do
   gem "webdrivers"
 end
 
+#Postgres BD in production
 group :production do
   gem "pg"
 end

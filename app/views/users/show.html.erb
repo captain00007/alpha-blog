@@ -5,7 +5,22 @@
   <div class="container text-center mt-4">
     <h1>Articles</h1>
   </div>
-  <%= render 'articles/articles', obj: @user.articles%>
+  
+  <div class="flickr_pagination mb-4">
+    <div class="page_info">
+      <%= page_entries_info @user_articles %>
+    </div>
+    <%= will_paginate @user_articles, :container => false %>
+  </div>
+
+  <%= render 'articles/articles', obj: @user_articles%>
+
+  <div class="flickr_pagination mb-4">
+    <div class="page_info">
+      <%= page_entries_info @user_articles %>
+    </div>
+    <%= will_paginate @user_articles, :container => false %>
+  </div>
   <p class="text-center">
     <%= link_to 'Create article', new_article_path, class:"btn btn-primary" %>
   </p>
