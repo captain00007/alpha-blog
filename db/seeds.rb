@@ -7,9 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-User.create(username: "Georges", email: "georges@example.com", password_digest: "georges1234")
-User.create(username: "Guy", email: "guy@example.com", password_digest: "guy1234")
-User.create(username: "Gustinvil", email: "gustinvil@example.com", password_digest: "gustinvil1234")
+User.create(username: "Georges", email: "georges@example.com", password: "georges1234")
+User.create(username: "Guy", email: "guy@example.com", password: "guy1234")
+User.create(username: "Gustinvil", email: "gustinvil@example.com", password: "gustinvil1234")
 
 Article.create(title: "#{User.first.username} first title seed", description: "#{User.first.username} first body seed", user_id: User.first.id)
 Article.create(title: "#{User.first.username} second title seed", description: "#{User.first.username} second body seed", user_id: User.first.id)

@@ -15,6 +15,8 @@ gem 'bootstrap', '~> 5.1.3'
 #Gem for pagination
 gem 'will_paginate', '~> 3.3'
 
+#gem 'jquery-rails'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
