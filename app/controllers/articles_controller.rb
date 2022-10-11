@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-    include UserLogged
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def show
@@ -14,6 +13,7 @@ class ArticlesController < ApplicationController
         if current_user
             @article=Article.new
         else
+            session[:back]=ENV['SESSION_BACK'] #'https://captaing-blog.herokuapp.com/articles/new' 
             redirect_to login_path
         end
     end

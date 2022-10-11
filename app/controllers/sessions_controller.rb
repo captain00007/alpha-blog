@@ -8,7 +8,11 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:session][:password])
           session[:user_id] = user.id
           flash[:notice] = "Logged in successfully"
-          redirect_to user
+          if session[:back]
+            redirect_to session[:back]
+          else
+            redirect_to user
+          end
         else
           flash.now[:alert] = "There was something wrong with your login details"
           puts "Something wrong"
@@ -18,6 +22,7 @@ class SessionsController < ApplicationController
     
     def destroy
         session[:user_id] = nil
+        session[:back]=nil
         flash[:notice] = "Logged out"
         redirect_to root_path
     end
