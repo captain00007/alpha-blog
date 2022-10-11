@@ -5,20 +5,25 @@
   <div class="container text-center mt-4">
     <h1>Articles</h1>
   </div>
+  <% if @user_articles.count != 0 %>
+    <div class="flickr_pagination mb-4">
+      <div class="page_info">
+        <%= page_entries_info @user_articles %>
+      </div>
+      <%= will_paginate @user_articles, :container => false %>
+    </div>
   
-  <div class="flickr_pagination mb-4">
-    <div class="page_info">
-      <%= page_entries_info @user_articles %>
+    <%= render 'articles/articles', obj: @user_articles%>
+    <div class="flickr_pagination mb-4">
+      <div class="page_info">
+        <%= page_entries_info @user_articles %>
+      </div>
+      <%= will_paginate @user_articles, :container => false %>
     </div>
-    <%= will_paginate @user_articles, :container => false %>
-  </div>
-
-  <%= render 'articles/articles', obj: @user_articles%>
-
-  <div class="flickr_pagination mb-4">
-    <div class="page_info">
-      <%= page_entries_info @user_articles %>
+  <% else %>
+    <p class="container text-center mt-4">
+      <span>No article found, please create your first article <%= link_to "here", new_article_path%></span>
     </div>
-    <%= will_paginate @user_articles, :container => false %>
-  </div>
+    
+  <% end %>
 </div>

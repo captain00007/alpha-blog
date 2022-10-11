@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+    include UserLogged
     before_action :set_article, only: [:show, :edit, :update, :destroy]
 
     def show
@@ -10,7 +11,11 @@ class ArticlesController < ApplicationController
     end
 
     def new
-        @article=Article.new
+        if current_user
+            @article=Article.new
+        else
+            redirect_to login_path
+        end
     end
 
     def edit
