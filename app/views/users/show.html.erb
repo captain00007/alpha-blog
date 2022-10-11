@@ -1,7 +1,9 @@
 <div class="contaner text-center">
   <h1 class="text-center"><%= @user.username %>'s profile </h1>
   <%= gravatar_for @user, size: 200 %>
-  <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3" %>
+  <% if logged_in? && current_user == @user %>
+    <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3" %>
+  <% end %>
   <div class="container text-center mt-4">
     <h1>Articles</h1>
   </div>
@@ -22,7 +24,13 @@
     </div>
   <% else %>
     <p class="container text-center mt-4">
-      <span>No article found, please create your first article <%= link_to "here", new_article_path%></span>
+      <span>
+        No article found 
+        <% if logged_in? && current_user == @user %>
+          please create your first article
+          <%= link_to "here", new_article_path%>
+        <% end %>
+      </span>
     </div>
     
   <% end %>
