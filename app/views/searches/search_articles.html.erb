@@ -1,0 +1,18 @@
+<h1 class="text-center">Search result <%= @query %></h1>
+<% if @articles && @articles.count != 0 %>
+    <div class="flickr_pagination mb-4">
+        <div class="page_info">
+        <%= page_entries_info @articles %>
+        </div>
+        <%= will_paginate @articles, :container => false %>
+    </div>
+    <%= render 'articles/articles', obj: @articles %>
+    <div class="flickr_pagination mb-4">
+        <div class="page_info">
+        <%= page_entries_info @articles %>
+        </div>
+        <%= will_paginate @articles, :container => false %>
+    </div>
+<% else %>
+    <p class="text-center">No article found</p>
+<%end%>

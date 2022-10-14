@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
         if current_user
             @article=Article.new
         else
-            session[:back]=ENV['SESSION_BACK'] #'' 
+            session[:back]=ENV['SESSION_BACK']
             redirect_to login_path
         end
     end
