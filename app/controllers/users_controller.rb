@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]
-    
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:update, :edit, :destroy]
+
     def show
         @user_articles=@user.articles.paginate(page: params[:page], per_page: 2)
     end
@@ -39,11 +41,18 @@ class UsersController < ApplicationController
 
     private
 
-        def user_params
-            params.require(:user).permit(:username, :email, :password, :password_confirmation)
-        end
+    def user_params
+        params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    end
 
-        def set_user
-            @user=User.find(params[:id])
+    def set_user
+        @user=User.find(params[:id])
+    end
+
+    def require_same_user
+        if current_user != @user
+            flash[:danger] = 'You can only edit your own user'
+            redirect_to @user
         end
+    end
 end
