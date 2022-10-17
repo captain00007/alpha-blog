@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
         return false if current_user.nil?
         return true
     end
+
+    def require_user
+        if !logged_in?
+            flash[:danger] = 'You must log in to do this action'
+            redirect_to login_path
+        end    
+    end
 end
