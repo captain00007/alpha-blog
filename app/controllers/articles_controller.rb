@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
         @article=Article.new(article_params)
         @article.user=current_user
         if @article.save
-            flash[:succes]="Article save succesfully"
+            flash[:success]="Article save succesfully"
             redirect_to article_path(@article)
         else
             render 'new' , status: 422
@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
 
     def update 
         if @article.update(article_params)
-            flash[:succes]="Article update succesfully"
+            flash[:success]="Article update succesfully"
             redirect_to article_path(@article)
         else
             render 'edit', status: 422
@@ -55,7 +55,7 @@ class ArticlesController < ApplicationController
     end
 
     def require_same_user
-        if current_user != @article.user
+        if current_user != @article.user && !current_user.admin?
             flash[:danger] = 'You can only edit your own article'
             redirect_to @article
         end

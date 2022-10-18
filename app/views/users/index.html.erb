@@ -23,6 +23,15 @@
             <% if logged_in? && current_user == user %>
               <%= link_to 'Edit profile', edit_user_path(user), class: "btn btn-outline-primary" %>
             <% end %>
+            <% if logged_in? %>
+              <% if current_user.admin? &&  current_user == user %>
+                 <%= link_to "Delete your profile", user_path(current_user), class:"btn btn-outline-danger", data: {"turbo-method": :delete, "turbo-confirm":"are you sure ?"} %>
+              <% elsif current_user.admin? && current_user != user %>
+                 <%= link_to "Delete user profile", user_path(user), class:"btn btn-outline-danger", data: {"turbo-method": :delete, "turbo-confirm":"are you sure ?"} %>
+              <% elsif current_user == user %>
+                <%= link_to "Delete profile", user_path(current_user), class:"btn btn-outline-danger", data: {"turbo-method": :delete, "turbo-confirm":"are you sure ?"} %>
+              <% end %>
+            <% end %>
           </div>
           <div class="card-footer text-muted">
             <span>Join <%= time_ago_in_words(user.created_at) %> ago</span>
