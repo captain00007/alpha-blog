@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   #Searching
   get 'search', to: 'searches#search_articles'
+
+  #Categories
+  resources :categories, except: [:destroy]
 end
