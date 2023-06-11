@@ -7,19 +7,20 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+User.create(username: "Gustinvil", email: "gustinvil@example.com", password: "gustinvil1234", admin: true)
 User.create(username: "Georges", email: "georges@example.com", password: "georges1234")
 User.create(username: "Guy", email: "guy@example.com", password: "guy1234")
-User.create(username: "Gustinvil", email: "gustinvil@example.com", password: "gustinvil1234", admin: true)
 
-Article.create(title: "#{User.first.username} first title seed", description: "#{User.first.username} first body seed", user_id: User.first.id)
-Article.create(title: "#{User.first.username} second title seed", description: "#{User.first.username} second body seed", user_id: User.first.id)
-Article.create(title: "#{User.first.username} third title seed", description: "#{User.first.username} third body seed", user_id: User.first.id)
+Category.create(name: "Football")
+Category.create(name: "Basketball")
+Category.create(name: "Formule 1")
+Category.create(name: "LifeStyle")
+Category.create(name: "Fashion")
 
-Article.create(title: "#{User.find(2).username} first title seed", description: "#{User.find(2).username} first body seed", user_id: User.find(2).id)
-Article.create(title: "#{User.find(2).username} second title seed", description: "#{User.find(2).username} second body seed", user_id: User.find(2).id)
-Article.create(title: "#{User.find(2).username} third title seed", description: "#{User.find(2).username} third body seed", user_id: User.find(2).id)
+Article.create(title: "Messi at Miami", description: "LM 10 the best football player in the world is now at MLS", user_id: User.first.id, category_ids: [1])
+Article.create(title: "Neymar show", description: "Njr 10 one of the best football player in the world will have a tour in the sea", user_id: User.first.id, category_ids: [1,4])
+Article.create(title: "Hamilton in Brazil", description: "Hamilton the best formule 1 driver was in Brazil this year", user_id: User.first.id, category_ids: [3,4])
 
-
-Article.create(title: "#{User.last.username} first title seed", description: "#{User.last.username} first body seed", user_id: User.last.id)
-Article.create(title: "#{User.last.username} second title seed", description: "#{User.last.username} second body seed", user_id: User.last.id)
-Article.create(title: "#{User.last.username} third title seed", description: "#{User.last.username} third body seed", user_id: User.last.id)
+Identification.create(register_number: "af2019")
+Identification.create(register_number: "ag2029")
+Identification.create(register_number: "ah2039")

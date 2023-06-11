@@ -1,8 +1,8 @@
 <div class="contaner text-center">
   <h1 class="text-center"><%= @user.username %>'s profile </h1>
   <%= gravatar_for @user, size: 200 %>
-  <% if logged_in? && current_user == @user %>
-    <%= link_to 'Edit your profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3" %>
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to 'Edit user profile', edit_user_path(@user), class: "btn btn-outline-primary mt-3" %>
   <% end %>
   <div class="container text-center mt-4">
     <h1>Articles</h1>

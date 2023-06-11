@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+    before_action :require_admin, except: [:index, :show]
     before_action :set_user, only: [:show, :edit, :update, :destroy]
-    before_action :require_user, except: [:show, :index, :new, :create]
-    before_action :require_same_user, only: [:update, :edit, :destroy]
+    before_action :require_user
 
     def show
         @user_articles=@user.articles.paginate(page: params[:page], per_page: 2)
@@ -56,10 +56,10 @@ class UsersController < ApplicationController
         @user=User.find(params[:id])
     end
 
-    def require_same_user
-        if current_user != @user && !current_user.admin?
-            flash[:alert] = 'You can only edit your own user'
-            redirect_to @user
+    def require_admin
+        if !(logged_in? && current_user.admin?)
+            flash[:alert] = "Only admins can perform that action"
+            redirect_to users_path
         end
     end
 end
