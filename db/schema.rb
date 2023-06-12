@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_10_224456) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_12_010355) do
   create_table "article_categories", force: :cascade do |t|
     t.integer "article_id"
     t.integer "category_id"
@@ -36,6 +36,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_224456) do
     t.string "register_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.boolean "active", default: true
   end
 
   create_table "users", force: :cascade do |t|

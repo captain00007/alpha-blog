@@ -1,0 +1,35 @@
+<h1 class="text-center mb-3">Identification table </h1>
+<div class="container">
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+            <th scope="col">User Name</th>
+            <th scope="col">Register number</th>
+            <th scope="col">User active</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <th scope="row"><%= user.username%></th>
+                    <% if !user.identification.nil? %>
+                        <td> <%= user.identification.register_number %> </td>
+                        <td><%= user.identification.active %></td>
+                        <td>
+                            <%= link_to 'Edit RN', edit_identification_path(user.identification), class: "btn btn-outline-primary m-2" %>
+                            <%= link_to 'Delete RN', identification_path(user.identification),class: "btn btn-outline-danger", data: {"turbo-method": :delete, "turbo-confirm":"are you sure ?"} %>
+                        </td>
+                    <% else %>
+                        <td> No number </td>
+                        <td> nil</td>
+                        <td>
+                            <%= link_to 'Assign RN', user_ident_path(id: user), class: "btn btn-outline-success" %>
+                        </td>
+                    <% end %>
+                    
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
           if session[:back]
             redirect_to session[:back]
           else
-            redirect_to user
+            redirect_to users_path
           end
         else
           flash.now[:alert] = "There was something wrong with your login details"

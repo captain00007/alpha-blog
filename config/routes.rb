@@ -23,4 +23,9 @@ Rails.application.routes.draw do
 
   #Categories
   resources :categories
+
+  #Identifications
+  get 'ident', to: 'pages#identification'
+  get 'user_ident/:id', to: 'identifications#user_ident',as: "user_ident" 
+  resources :identifications, except: [:index, :show]
 end
