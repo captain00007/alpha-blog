@@ -8,8 +8,9 @@
 
 
 User.create(username: "Gustinvil", email: "gustinvil@example.com", password: "gustinvil1234", admin: true)
-User.create(username: "Georges", email: "georges@example.com", password: "georges1234")
-User.create(username: "Guy", email: "guy@example.com", password: "guy1234")
+User.create(username: "Georges", email: "georges@example.com", password: "georges1234", admin: false)
+User.create(username: "Guy", email: "guy@example.com", password: "guy1234", admin: false)
+User.create(username: "Angus", email: "angus@example.com", password: "angus1234", admin: false)
 
 Category.create(name: "Football")
 Category.create(name: "Basketball")
@@ -21,6 +22,6 @@ Article.create(title: "Messi at Miami", description: "LM 10 the best football pl
 Article.create(title: "Neymar show", description: "Njr 10 one of the best football player in the world will have a tour in the sea", user_id: User.first.id, category_ids: [1,4])
 Article.create(title: "Hamilton in Brazil", description: "Hamilton the best formule 1 driver was in Brazil this year", user_id: User.first.id, category_ids: [3,4])
 
-Identification.create(register_number: "af2019")
-Identification.create(register_number: "ag2029")
-Identification.create(register_number: "ah2039")
+Identification.create(register_number: "af2019", user_id: 1, active: true)
+Identification.create(register_number: "ag2029", user_id: 2, active: true)
+Identification.create(register_number: "ah2039", user_id: 3, active: false)
