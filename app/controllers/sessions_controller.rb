@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
           session[:user_id] = user.id
           flash[:notice] = "Logged in successfully"
           if session[:back]
+            puts "Session backkkkk"
+            puts session[:back]
             redirect_to session[:back]
           else
             redirect_to users_path

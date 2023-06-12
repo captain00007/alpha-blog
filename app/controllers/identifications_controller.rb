@@ -7,8 +7,6 @@ class IdentificationsController < ApplicationController
     end
 
     def user_ident
-        #puts "userrrrrrrrr id"
-        #puts params[:id]
         @user_id = params[:id]
         @identification =  Identification.new
     end
@@ -49,7 +47,7 @@ class IdentificationsController < ApplicationController
     def require_admin
         if !(logged_in? && current_user.admin?)
             flash[:alert] = "Only admins can perform that action"
-            redirect_to articles_path
+            redirect_to ident_path
         end
     end
 end
