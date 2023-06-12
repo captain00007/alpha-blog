@@ -7,13 +7,15 @@ class IdentificationsController < ApplicationController
     end
 
     def user_ident
+        #puts "userrrrrrrrr id"
+        #puts params[:id]
         @user_id = params[:id]
         @identification =  Identification.new
     end
 
     def create
-        @identification =  Identification.new(params.require(:identification).permit(:user_id, :register_number, :active))
-        @identification.user = params[:user_id]
+        @identification =  Identification.new(params.require(:identification).permit(:register_number, :user_id, :active))
+        
         if @identification.save
             flash[:notice]="Register number assigned to user"
             redirect_to ident_path
