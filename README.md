@@ -32,7 +32,7 @@ Step by step:
     sqlite3 –version to see the version of sqlite3
 
 **Install node**
-    sudo apt-get install nodejs
+    https://github.com/nodesource/distributions
 
 
 ## Configuration to run the project on Windows
